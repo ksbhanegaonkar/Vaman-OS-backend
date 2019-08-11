@@ -1,0 +1,9 @@
+Imp Notes : 
+issue : org.glassfish.jersey.servlet.ServletContainer ClassNotFoundException while running
+cause : its eclipse issue, bot jersey issue, follow below steps to mitigate this issue
+
+Right click your eclipse project Properties -> Deployment Assembly -> Add -> Java Build Path Entries -> Gradle Dependencies -> Finish.
+
+So Eclipse wasn't using the Gradle dependencies when Apache was starting .
+
+Reference link : https://stackoverflow.com/questions/22022114/org-glassfish-jersey-servlet-servletcontainer-classnotfoundexception
