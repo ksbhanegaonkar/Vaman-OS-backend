@@ -16,43 +16,49 @@ import com.vamanos.util.DesktopUpdateUtil;
 
 @Path("services")
 public class ContextMenuService {
+	DesktopUpdateUtil DesktopUpdateUtil = new DesktopUpdateUtil();
 	
-    @GET
-    @Path("getContextMenuList")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getContextMenuList() {
-    	ResponseBuilder builder = Response.ok(new ContextMenuList().getcontextMenuList());
-    	Response response = builder.build();
-        return response;
-    }
-    
-    
-    @GET
-    @Path("getStartMenuList")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getStartMenuList() {
-    	ResponseBuilder builder = Response.ok(new StartMenuList().getStartMenuList());
-    	Response response = builder.build();
-        return response;
-    }
-    
-    @GET
-    @Path("getDesktopItemList")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getDesktopItemist() {
-    	ResponseBuilder builder = Response.ok(new DesktopItemList().getDesktopItemList());
-    	Response response = builder.build();
-        return response;
-    }
-    
     @POST
     @Path("onaction")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.TEXT_PLAIN)
     public Response onAction(String action) {
     	System.out.println("On Action method called  !!"+action);
-    	ResponseBuilder builder = Response.ok(new DesktopUpdateUtil().updateDesktop(action));
+    	ResponseBuilder builder = Response.ok(DesktopUpdateUtil.updateDesktop(action));
     	Response response = builder.build();
         return response;
     }
+    
+    
+	/*
+	 * @GET
+	 * 
+	 * @Path("getContextMenuList")
+	 * 
+	 * @Produces(MediaType.APPLICATION_JSON) public Response getContextMenuList() {
+	 * ResponseBuilder builder = Response.ok(new
+	 * ContextMenuList().getcontextMenuList()); Response response = builder.build();
+	 * return response; }
+	 * 
+	 * 
+	 * @GET
+	 * 
+	 * @Path("getStartMenuList")
+	 * 
+	 * @Produces(MediaType.APPLICATION_JSON) public Response getStartMenuList() {
+	 * ResponseBuilder builder = Response.ok(new
+	 * StartMenuList().getStartMenuList()); Response response = builder.build();
+	 * return response; }
+	 * 
+	 * @GET
+	 * 
+	 * @Path("getDesktopItemList")
+	 * 
+	 * @Produces(MediaType.APPLICATION_JSON) public Response getDesktopItemist() {
+	 * ResponseBuilder builder = Response.ok(new
+	 * DesktopItemList().getDesktopItemList()); Response response = builder.build();
+	 * return response; }
+	 */
+    
+
 }

@@ -30,6 +30,9 @@ public class DesktopItemList {
 		return gson.toJsonTree(desktopItemList);
 	}
 
+	public Map<String,String> getDesktopItemMap() {
+		return desktopItemList;
+	}
 	public void setDesktopItemList(Map<String, String> desktopItemList) {
 		this.desktopItemList = desktopItemList;
 	}
