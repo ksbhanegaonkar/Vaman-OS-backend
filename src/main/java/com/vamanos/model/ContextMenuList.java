@@ -9,11 +9,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 
 @XmlRootElement
 public class ContextMenuList {
-	//Map<String,List<String>> allMenuList = new HashMap<String, List<String>>();
-	Map<String,List<String>> allMenuList = new HashMap<String, List<String>>();
+	//Map<String,List<String>> contextMenuList = new HashMap<String, List<String>>();
+	Map<String,List<String>> contextMenuList = new HashMap<String, List<String>>();
 	
 	/*
 	 *     "desktop-wallpaper":['','','','','Cut',''],
@@ -27,21 +28,21 @@ public class ContextMenuList {
 	public ContextMenuList() {
 		// TODO Auto-generated constructor stub
 		List<String> desktopWallpaperMenuList = new ArrayList<>();
-		desktopWallpaperMenuList.add("New Sprint");
+		desktopWallpaperMenuList.add("New Sprint 1");
 		desktopWallpaperMenuList.add("New User Story");
 		desktopWallpaperMenuList.add("Refresh");
 		desktopWallpaperMenuList.add("Copy");
 		desktopWallpaperMenuList.add("Paste");
 		
 		List<String> taskBarMenuList = new ArrayList<>();
-		taskBarMenuList.add("Task bar option 1");
+		taskBarMenuList.add("Task bar option 12");
 		taskBarMenuList.add("Task bar option 2");
 		taskBarMenuList.add("Task bar option 3");
 		taskBarMenuList.add("Task bar option 4");
 		taskBarMenuList.add("Task bar option 5");
 		
 		List<String> desktopItemFolderMenuList = new ArrayList<>();
-		desktopItemFolderMenuList.add("Open folder");
+		desktopItemFolderMenuList.add("Open folder1");
 		desktopItemFolderMenuList.add("Open folder in new window");
 		desktopItemFolderMenuList.add("Bookmark folder");
 		desktopItemFolderMenuList.add("Copy Folder");
@@ -51,7 +52,7 @@ public class ContextMenuList {
 
 		
 		List<String> desktopItemFileMenuList = new ArrayList<>();
-		desktopItemFileMenuList.add("Open file");
+		desktopItemFileMenuList.add("Open file1");
 		desktopItemFileMenuList.add("Open file in new window");
 		desktopItemFileMenuList.add("Bookmark file");
 		desktopItemFileMenuList.add("Copy file");
@@ -59,35 +60,31 @@ public class ContextMenuList {
 		desktopItemFileMenuList.add("Delete file");
 		
 		List<String> startButtonContextMenuList = new ArrayList<>();
-		startButtonContextMenuList.add("My Folder");
+		startButtonContextMenuList.add("My Folder1");
 		startButtonContextMenuList.add("My Bookmarks");
 		startButtonContextMenuList.add("My Notes");
 		startButtonContextMenuList.add("Logout");
 
 		
-		List<String> startButtonMenuList = new ArrayList<>();
-		startButtonMenuList.add("My Folder");
-		startButtonMenuList.add("My Bookmarks");
-		startButtonMenuList.add("My Notes");
-		startButtonMenuList.add("Logout");
 
-		allMenuList.put("desktop-wallpaper", desktopWallpaperMenuList);
-		allMenuList.put("task-bar", taskBarMenuList);
-		allMenuList.put("desktop-item-folder", desktopItemFolderMenuList);
-		allMenuList.put("desktop-item-file", desktopItemFileMenuList);
-		allMenuList.put("start-button-context-menu", startButtonContextMenuList);
-		allMenuList.put("start-button-menu", startButtonMenuList);
+
+		contextMenuList.put("desktop-wallpaper", desktopWallpaperMenuList);
+		contextMenuList.put("task-bar", taskBarMenuList);
+		contextMenuList.put("desktop-item-folder", desktopItemFolderMenuList);
+		contextMenuList.put("desktop-item-file", desktopItemFileMenuList);
+		contextMenuList.put("start-menu-button", startButtonContextMenuList);
+		
 		
 	}
 
-	public String getAllMenuList() {
+	public JsonElement getcontextMenuList() {
 	    GsonBuilder builder = new GsonBuilder();
 	    Gson gson = builder.create();
-		return gson.toJson(allMenuList);
+		return gson.toJsonTree(contextMenuList);
 	}
 
-	public void setAllMenuList(Map<String, List<String>> allMenuList) {
-		this.allMenuList = allMenuList;
+	public void setcontextMenuList(Map<String, List<String>> contextMenuList) {
+		this.contextMenuList = contextMenuList;
 	}
 	
 	
